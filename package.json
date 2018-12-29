@@ -1,0 +1,60 @@
+{
+  "name": "AI_mEDIA_pLAYER",
+  "version": "1.0.0",
+  "description": "Hash Your Excel Columns.",
+  "main": "main.js",
+  "dependencies": {
+    "core-js": "",
+    "electron-titlebar-windows": "^3.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "electron-builder": "^19.27.2",
+    "electron-builder-squirrel-windows": "^19.27.3",
+    "electron-packager": "^9.0.0",
+    "electron-prebuilt": "^0.35.2",
+    "electron-winstaller": "^2.6.3",
+    "laravel-mix": "^2.1.14",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "install-app-deps",
+    "pack": "build --dir",
+    "dist": "build",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "author": "Emmanuel Oppong-Sarpong",
+  "license": "MIT",
+  "build": {
+    "appId": "sarpiro.at.printmaker",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
+  }
+}
